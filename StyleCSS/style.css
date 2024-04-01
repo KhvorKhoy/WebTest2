@@ -1,0 +1,572 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+:root{
+    --blue: #2a2185;
+    --white: #fff;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+
+}
+
+.navication{
+    min-width: 300px;
+    background-color: var(--blue);
+    height: 100%;
+    position: fixed;
+    border-left: 20px solid var(--blue);
+    transition: .5s;
+    overflow: hidden;
+    z-index: 1002;
+
+}
+
+.navication.active{
+    min-width: 90px;
+    overflow: visible;
+
+}
+.navication.active .nav ul li a span{
+    
+    opacity: 1;
+    color: black;
+    left: 50px;
+    top: -5px;
+    text-wrap: nowrap;
+    z-index: 1000;
+    padding: 8px 15px;
+    
+    border-radius: 25px;
+    outline: 1px solid var(--blue);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
+
+}
+.navication.active .nav ul li a:hover span{
+    background-color: var(--white);
+    opacity: 1;
+
+}
+.navication .logo-brand{
+    padding-top: 10px;
+    padding-left: 10px;
+    color: var(--white);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.navication .logo-brand i{
+    font-size: 2rem;
+}
+.navication .logo-brand span{
+    position: absolute;
+    text-align: center;
+    padding-left: 30px;
+    left:  40px;
+    transition: .8s ease;
+}
+
+.navication.active .logo-brand span{
+    opacity: 0;
+    transition: none;
+}
+
+.navication .nav{
+    position: relative;
+    margin-top: 40px;
+    min-width: 100%;
+    height: 100%;
+}
+
+.navication .nav ul{
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+}
+
+
+.navication .nav ul li{
+    position: relative;
+    
+}
+.navication .nav ul li a{
+    text-decoration: none;
+    color: var(--white);
+    padding: 13px 0;
+    line-height: 40px;
+    border-top-left-radius:30px;
+    border-bottom-left-radius:30px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.navication .nav ul li a:hover{
+    background-color: var(--white);
+    color: var(--blue);
+}
+
+.navication .nav ul li a i{
+    font-size: 1.5rem;
+    padding-left: 10px;
+}
+
+.navication .nav ul li:hover a::before{
+    content: "";
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    top: -40px;
+    box-shadow: 25px 25px 0px 8px var(--white);
+    pointer-events: none;
+}
+.navication .nav ul li:hover a::after{
+    content: "";
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    box-shadow: 25px -25px 0px 8px var(--white);
+    pointer-events: none;
+}
+
+.navication .nav ul li a span{
+    padding-left: 30px;
+    position: absolute;
+    left: 40px;
+    transition: .8s ease;
+
+}
+
+.navication .nav ul li:nth-child(4) a span{
+    padding-left: 30px;
+}
+
+
+.main{
+    height: 100vh;
+    padding-inline: 10px;
+    padding-top: 10px;
+    position: relative;
+    width: calc(100% - 300px);
+    background-color: var(--white);
+    left: 300px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.main .header{
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    transition: .5s;
+}
+
+.main.active {
+    width: calc(100% - 90px);
+    left: 90px;
+}
+
+.main .header .user img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    float: right;
+}
+
+.main .header .togle{
+    font-size: 1.8rem;
+    color: var(--black1);
+    cursor: pointer;
+    z-index: 1003;
+}
+
+.main .header .searchbox{
+    position: relative;
+    width: 100%;
+    transition:all .5s;
+}
+
+.main .header .searchbox input{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    padding-left: 40px;
+    outline: none;
+    border: 1px solid var(--black2);
+    font-size: 1.2rem;
+
+}
+
+
+.main .header .searchbox i{
+    position: absolute;
+    left: 10px;
+    top: 13px;
+    color: var(--black2);
+    cursor: pointer;
+
+}
+
+.view{
+    padding-block: 20px;
+    display: grid;
+    gap: 1.3rem;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+}
+
+.view  .view-box{
+    padding: 10px 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow:0px 4px 8px 2px rgba(0, 0, 250, .1), 0px -2px 6px rgba(0, 0, 250, .03);
+}
+
+.view  .view-box:hover{
+    background-color: var(--blue);
+}
+.view  .view-box:hover .view-number h1{
+    color: var(--white);
+}
+.view  .view-box:hover i{
+    color: var(--white);
+}
+
+.view .view-box i, .view-number h1{
+    color: var(--blue);
+}
+
+.view .view-box .view-number h1{
+    letter-spacing: 2px;
+}
+.view .view-box .view-number p{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black2);
+}
+
+.view .view-box i{
+    font-size: 1.9rem;
+}
+
+.detail-order{
+    height: 75vh;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    position: relative;
+}
+
+.detail-order .orderList{
+    border-radius: 5px;
+    padding: 0px 25px;
+    overflow: auto;
+    box-shadow: 0 4px 25px rgba(0, 0, 250, .3), 0 4px 8px rgba(0, 0, 250, .08);
+}
+
+.detail-order .orderList .title-list{
+    color: var(--blue);
+    width: 100%;
+    font-size: 1.2rem;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    text-wrap: nowrap;
+}
+.detail-order .orderList .title-list a{
+    text-align: right;
+    font-weight: 600;
+}
+
+.detail-order .orderList .table-list table{
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+
+}
+
+.detail-order .orderList .table-list table tr{
+    border-bottom: 1px solid var(--black2);
+    line-height: 40px;
+    padding-block: 10px;
+
+}
+
+.detail-order .orderList .table-list table tr td{
+    padding: 8px 10px;
+    font-size: 1.2rem;
+    color: var(--blue);
+}
+
+.detail-order .orderList .table-list table tr th:first-child{
+    text-align: left;
+}
+
+.detail-order .orderList .table-list table tr th:nth-child(2){
+    text-align: right;
+    padding-right: 5px;
+}
+
+.detail-order .orderList .table-list table tr th:nth-child(3){
+    text-align: left;
+    padding-left: 5px;
+}
+.detail-order .orderList .table-list table tr td:first-child{
+    color: var(--black1);
+}
+
+.detail-order .orderList .table-list table tr td:last-child{
+    text-align: right;
+}
+.detail-order .orderList .table-list table tr td:nth-child(2){
+    text-align: right;
+}
+
+.detail-order .orderList .table-list table tr:last-child{
+    border: none;
+}
+
+.detail-order .orderList .table-list table .green td:last-child{
+    background-color: rgb(2, 163, 2);
+    width: 40px;
+}
+.detail-order .orderList .table-list table .yellow td:last-child{
+    background-color: yellow;
+    width: 40px;
+}
+.detail-order .orderList .table-list table .blue td:last-child{
+    background-color: blue;
+    width: 40px;
+}
+.detail-order .orderList .table-list table .red td:last-child{
+    background-color: red;
+    width: 40px;
+}
+.customers{
+    position: relative;
+    border-radius: 5px;
+    padding: 0 30px;
+    box-shadow: 0 4px 25px rgba(0, 0, 250, .3), 0 4px 8px rgba(0, 0, 250, .08);
+    overflow: auto;
+}
+
+.customers h2{
+    padding-top: 10px;
+    height: 10%;
+    background-color: var(--white);
+    color: var(--blue);
+    font-size: 1.4rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+.customers ul{
+    padding-top: 50;
+}
+.customers ul li{
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 5px;
+}
+.customers ul li .name{
+    text-align: center;
+}
+.customers ul li .name h3{
+    color: var(--blue);
+    letter-spacing: 0.5px;
+}
+.customers ul li .name p{
+    color: var(--black2);
+}
+
+.customers ul li img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@media screen and (max-width:1000px) {
+    .main{
+        overflow: visible;
+    }
+    .detail-order{
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
+    .customers h2{
+        padding-top: 10px;
+        height: 20%;
+
+    }
+
+    .view{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+
+@media screen and (max-width:700px) {
+
+    .navication{
+        min-width: 200px;
+        position: fixed;
+    }
+    .table-list table{
+        text-wrap: nowrap;
+    }
+
+    .customers h2 , h3{
+        padding-inline: 0;
+        text-wrap: nowrap;
+        width: 100%;
+    }
+    
+    
+    .main{
+        position: relative;
+        width: calc(100% - 200px);
+        left: 200px;
+        
+    }
+    .header{
+        position: relative;
+    }
+    
+    .main.active .header{
+        position: relative;
+
+    }
+
+    .navication.active .searchbox{
+        transition: .5;
+        width: 90%;
+        right: 0px;
+    }
+
+    
+    .main.active .togle{
+        position: relative;
+        left: 0px; 
+        
+    }
+    
+    .header .user{
+        
+        padding-left: 10px;
+    }
+
+
+    
+}
+
+@media screen and (max-width:650px){
+    .view{
+        grid-template-columns: 1fr;
+    }
+
+    .view-box{
+        font-size: .7rem;
+    }
+    .detail-order .orderList{
+        padding: 0;
+    }
+
+    .title-list h3, .title-list a{
+        font-size: 1.2rem;
+        padding: 0 10px;
+    }
+    .nav ul li a , .logo-brand span{
+        font-size: .7rem;
+    }
+
+
+    .customers h2{
+        padding: 10px 0;
+        font-size: 1.2rem;
+    }
+
+    .customers ul li .name h3, .customers ul li .name p{
+        font-size: 1rem;
+    }
+
+    .view{
+        min-width: 100%;
+    }
+
+    .table-list{
+        padding: 0 10px;
+    }
+
+    .table-list table tr:first-child{
+        position: sticky;
+        top: 30px;
+    }
+    .main.active .header{
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+        background-color: var(--white);
+        padding-top: 10px;
+    }
+    .header{
+        padding-top: 10px;
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+        background-color: var(--white);
+    }
+
+    .main{
+        margin-top: 0;
+        padding-top: 0;
+    }
+}
+
+@media screen and (max-width:360px){
+    .customers h2{
+        color: red;
+        font-size: 1.1rem;
+    }
+
+    .title-list h3, .title-list a{
+        font-size: 1.1rem;
+    }
+    
+}
+
